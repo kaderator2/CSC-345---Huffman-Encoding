@@ -37,4 +37,13 @@ public class HuffmanTree {
     public int size() {
         return numCharacters;
     }
+
+    // Given a filename, this method constructs a Huffman Tree. The file is read
+    // using the methods in the FileRead class, character frequencies are stored
+    // into a hashtable, and this hashtable is then used to construct a min 
+    // PriorityQueue of HuffmanTree objects. We then use this PriorityQueue in
+    // order to construct a Huffman Tree, which will be used to encode the file
+    public HuffmanTree constructTree(String filename) {
+        return null;
+    }
 }
