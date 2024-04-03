@@ -40,7 +40,7 @@ public class TreeNode {
     }
 
     // Setter for the frequency
-    public void setFequency(double newFreq) {
+    public void setFrequency(double newFreq) {
         frequency = newFreq;
     }
 
