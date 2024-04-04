@@ -246,4 +246,54 @@ public class HuffmanTree {
             System.out.println("Error: IOException");
         }
     }
+
+    // Decodes a given encoded file using the Huffman Tree and prints the output
+    public void decodeFile(String encodedFilename) {
+        // Handles creating the reader and the writer for new and pre-exisitng
+        // file
+        String result = "";
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(encodedFilename));
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + encodedFilename);
+            return;
+        }
+
+        // Reads through the encoded file, character by character, decoding the
+        // content using the Huffman Tree and writing the decoded characters to
+        // the new file
+        int next;
+        TreeNode curNode = head;
+        try {
+            // Gets the next character from the file, then loops until we run
+            // out of characters
+            next = reader.read();
+            while (next != -1) {
+                // Traverses the Huffman Tree based on the encoded bit
+                if (next == '0') {
+                    curNode = curNode.getLeft();
+                } else if (next == '1') {
+                    curNode = curNode.getRight();
+                }
+
+                // If a leaf node is reached, write the corresponding character to
+                // the decoded file and reset the currentNode to the root
+                if (curNode.getChar() != null) {
+                    result += curNode.getChar();
+                    curNode = head;
+                }
+
+                // Read the next character from the encoded file
+                next = reader.read();
+            }
+
+            // Closes the reader
+            reader.close();
+            // Prints the result
+            System.out.println(result);
+        } catch (IOException ioe) {
+            System.out.println("Error: IOException");
+        }
+    }
 }
