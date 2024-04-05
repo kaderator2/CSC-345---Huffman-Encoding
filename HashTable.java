@@ -54,7 +54,7 @@ public class HashTable {
     public char getChar(int index) {
     	return table[index].nodeChar;
     } 
-    public char getFrequency(int index) {
+    public int getFrequency(int index) {
     	return table[index].count;
     } 
    
