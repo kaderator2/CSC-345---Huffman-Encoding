@@ -72,36 +72,38 @@ public class HuffmanTree {
 
         // Constructs a PriorityQueue containing a Huffman Tree for each character
         // in the file
-        PriorityQueue queue = new PriorityQueue();
-        queue = queue.constructQueue(hashtable);
+        PriorityQueue queue = new PriorityQueue(hashtable);
 
         // Iterates until the Queue contains only a single HuffmanTree
-        while (queue.getNumTrees() > 1) {
+        while (queue.size() > 1) {
             // Gets the two trees with the minimum frequencies
-            HuffmanTree tree1 = queue.removeFront();
-            HuffmanTree tree2 = queue.removeFront();
+            TreeNode tree1 = queue.dequeue();
+            TreeNode tree2 = queue.dequeue();
 
             // Creates a new node whose children are these two trees
             TreeNode newRoot = new TreeNode();
-            newRoot.setLeft(tree1.head());
-            newRoot.setRight(tree2.head());
-            newRoot.setFrequency(tree1.rootFrequency() + tree2.rootFrequency());
+            newRoot.setLeft(tree1);
+            newRoot.setRight(tree2);
+            newRoot.setFrequency(tree1.getFrequency() + tree2.getFrequency());
 
             // Creates a new tree with this node as its head
-            HuffmanTree newTree = new HuffmanTree();
-            newTree.setHead(newRoot);
+            // HuffmanTree newTree = new HuffmanTree();
+            // newTree.setHead(newRoot);
 
             // Inserts this new tree into the queue
-            queue.insert(newTree);
+            queue.enqueue(newRoot);
         }
 
-        if (queue.getNumTrees() == 0) {
+        if (queue.size() == 0) {
             // If the queue was empty from the start, we return null
             return null;
         }
 
         // Otherwise, we return the resulting tree
-        return queue.removeFront();
+        TreeNode returnTreeNode = queue.dequeue();
+        HuffmanTree returnTree = new HuffmanTree();
+        returnTree.setHead(returnTreeNode);
+        return returnTree;
     }
 
     // Determines the encoding of a given character. Note that this is done
