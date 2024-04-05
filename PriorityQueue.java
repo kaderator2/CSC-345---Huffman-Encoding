@@ -7,7 +7,28 @@ public class PriorityQueue {
   private MinHeap heap;
 
   public PriorityQueue() {
-    MinHeap heap = new MinHeap();
+    this.heap = new MinHeap();
+  }
+
+  /*
+   * Overloaded constructor for PQ that takes a Huffman HashTable as a param
+   * and enequeues TreeNodes created with the each HashNode's values from said
+   * table
+   */
+  public PriorityQueue(HashTable table) {
+    this.heap = new MinHeap();
+
+    for (int i = 0; i < table.size; i++) {
+      HashNode hn;
+      if (table.table[i] != null) {
+        hn = table.table[i];
+
+        TreeNode tn = new TreeNode();
+        tn.setChar("" + hn.nodeChar);
+        tn.setFrequency(hn.count);
+        enqueue(tn);
+      }
+    }
   }
 
   /*
