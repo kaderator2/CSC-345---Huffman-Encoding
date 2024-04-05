@@ -1,11 +1,9 @@
 /*
  * @Author: Edward Fattell
- * Models a binary heap where the root node is the minimum value of the heap
+ * Models a binary heap for Huffman Tree nodes where the root is the minimum value of the heap
  *
  */
 public class MinHeap {
-  // HeapNode Head;
-  // HeapNode End;
   TreeNode[] heap;
   int size;
 
@@ -14,6 +12,9 @@ public class MinHeap {
     heap = new TreeNode[10];
   }
 
+  /*
+   * Inserts TreeNode and re heapifies
+   */
   public void insert(TreeNode n) {
     if (size >= heap.length - 1) {
       resize();
@@ -25,10 +26,16 @@ public class MinHeap {
 
   }
 
+  /*
+   * Returns head's value without removing
+   */
   public TreeNode peek() {
     return heap[0];
   }
 
+  /*
+   * Returns current min head of bin heap and re heapifies
+   */
   public TreeNode remove() {
     TreeNode result = heap[0];
     heap[0] = heap[size];
@@ -40,6 +47,9 @@ public class MinHeap {
     return result;
   }
 
+  /*
+   * Recursive function used to maintain order when removing
+   */
   public void sink(int i) {
     if (left(i) <= size) {
       int higherpriorityChild = left(i);
@@ -55,6 +65,9 @@ public class MinHeap {
     }
   }
 
+  /*
+   * Recursive function used to maintain heap order when inserting
+   */
   public void swim(int i) {
     if (i <= 1)
       return;
@@ -66,18 +79,30 @@ public class MinHeap {
     }
   }
 
+  /*
+   * Private method used to return the parent of and index
+   */
   private int parent(int i) {
     return i / 2;
   }
 
+  /*
+   * Private method used to return the left child of an index
+   */
   private int left(int i) {
     return 2 * i;
   }
 
+  /*
+   * private method used to retunr the right child of an index
+   */
   private int right(int i) {
     return 2 * i + 1;
   }
 
+  /*
+   * Resize enlarges the array if required by a scale of 2
+   */
   private void resize() {
     TreeNode[] newArr = new TreeNode[2 * heap.length];
     for (int i = 0; i < heap.length; i++) {
