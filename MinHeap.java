@@ -94,7 +94,7 @@ public class MinHeap {
   }
 
   /*
-   * private method used to retunr the right child of an index
+   * private method used to return the right child of an index
    */
   private int right(int i) {
     return 2 * i + 1;
