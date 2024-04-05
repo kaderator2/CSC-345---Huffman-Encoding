@@ -54,6 +54,9 @@ public class HashTable {
     public char getChar(int index) {
     	return table[index].nodeChar;
     } 
+    public char getFrequency(int index) {
+    	return table[index].count;
+    } 
    
     // Method that checks to see if a target character is within a HashTable.
     // returns the index of the target character or -1 if index is not found.
