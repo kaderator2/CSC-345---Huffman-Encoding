@@ -18,6 +18,7 @@ public class HashTable {
         table = new HashNode[size];
         numElements = 0;
 ;    }
+    // debugging method that prints the contents of the table
 	public static void printTable() {
     	
     	for (int k = 0; k < numElements;k++) {
