@@ -6,6 +6,7 @@
 public class MinHeap {
   TreeNode[] heap;
   int size;
+  final int ROOT = 1;
 
   public MinHeap() {
     size = 0;
@@ -30,19 +31,19 @@ public class MinHeap {
    * Returns head's value without removing
    */
   public TreeNode peek() {
-    return heap[0];
+    return heap[ROOT];
   }
 
   /*
    * Returns current min head of bin heap and re heapifies
    */
   public TreeNode remove() {
-    TreeNode result = heap[0];
-    heap[0] = heap[size];
+    TreeNode result = heap[ROOT];
+    heap[ROOT] = heap[size];
     heap[size] = null;
     size--;
 
-    sink(0);
+    sink(ROOT);
 
     return result;
   }
@@ -109,5 +110,19 @@ public class MinHeap {
       newArr[i] = heap[i];
     }
     heap = newArr;
+  }
+
+  /*
+   * Returns String of values of Binary Heap
+   */
+  public String toString() {
+    String result = "";
+
+    for (int i = ROOT; i <= size; i++) {
+      System.out.println("i: " + i);
+      TreeNode n = heap[i];
+      result += "[" + n.getChar() + ", " + n.getFrequency() + "]";
+    }
+    return result;
   }
 }
