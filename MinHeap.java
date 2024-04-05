@@ -24,7 +24,6 @@ public class MinHeap {
 
     swim(size + 1);
     size++;
-
   }
 
   /*
@@ -119,7 +118,6 @@ public class MinHeap {
     String result = "";
 
     for (int i = ROOT; i <= size; i++) {
-      System.out.println("i: " + i);
       TreeNode n = heap[i];
       result += "[" + n.getChar() + ", " + n.getFrequency() + "]";
     }
