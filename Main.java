@@ -9,6 +9,7 @@ public class Main {
         // FileRead fileRead = new FileRead();
         // String filename = fileRead.getFilename();
         HuffmanTree hTree = new HuffmanTree();
+        System.out.println("Making new tree!");
         hTree = hTree.constructTree("testFile.txt");
 
         System.out.println("new tree made!\nStarting to encode file!");
