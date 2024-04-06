@@ -3,15 +3,13 @@
 // other written java files and output the huffman encoding data.
 //
 // Authors: Kade Dean
-import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         // FileRead fileRead = new FileRead();
         // String filename = fileRead.getFilename();
         HuffmanTree hTree = new HuffmanTree();
-        hTree.constructTree("testFile.txt");
+        hTree = hTree.constructTree("testFile.txt");
 
         System.out.println("new tree made!\nStarting to encode file!");
         hTree.encodeFile("testFile.txt", "encodedFile.txt");

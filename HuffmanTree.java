@@ -12,9 +12,8 @@ import java.io.IOException;
 
 public class HuffmanTree {
     // Declares the instance variables associated with the Huffman Tree, which
-    // include
-    // the node at the head of the tree and the number of characters within the
-    // tree.
+    // include the node at the head of the tree and the number of characters 
+    // within the tree.
     private TreeNode head;
     private double rootFrequency;
 
