@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HashNode Test" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-04-06T18:57:25" hostname="DESKTOP-3JLUF70" time="0.045">
+  <properties/>
+  <testcase name="Test Get Count" classname="HashNodeTest" time="0.036"/>
+  <testcase name="Test Get Tombstone" classname="HashNodeTest" time="0.004"/>
+  <testcase name="Test Get Char" classname="HashNodeTest" time="0.0"/>
+  <testcase name="Test Set Tombstone" classname="HashNodeTest" time="0.0"/>
+  <testcase name="Test Increment Count" classname="HashNodeTest" time="0.0"/>
+  <testcase name="Test Constructor" classname="HashNodeTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
