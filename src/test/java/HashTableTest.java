@@ -1,3 +1,6 @@
+// This file contains testcases for our HashTable class
+//
+// Authors: Kade Dean
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

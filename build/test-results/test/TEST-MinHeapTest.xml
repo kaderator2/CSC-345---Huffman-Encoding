@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MinHeap Test" tests="11" skipped="0" failures="2" errors="0" timestamp="2024-04-06T18:57:25" hostname="DESKTOP-3JLUF70" time="0.022">
+<testsuite name="MinHeap Test" tests="11" skipped="0" failures="2" errors="0" timestamp="2024-04-06T19:04:13" hostname="DESKTOP-3JLUF70" time="0.023">
   <properties/>
-  <testcase name="Test Insert and Remove" classname="MinHeapTest" time="0.005"/>
-  <testcase name="Test ToString" classname="MinHeapTest" time="0.01">
+  <testcase name="Test Insert and Remove" classname="MinHeapTest" time="0.007"/>
+  <testcase name="Test ToString" classname="MinHeapTest" time="0.011">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;[c, 0.2][b, 0.3][a, 0.5]&gt; but was: &lt;[c, 0.2][a, 0.5][b, 0.3]&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;[c, 0.2][b, 0.3][a, 0.5]&gt; but was: &lt;[c, 0.2][a, 0.5][b, 0.3]&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
 	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at app//MinHeapTest.testToString(MinHeapTest.java:90)
+	at app//MinHeapTest.testToString(MinHeapTest.java:93)
 	at java.base@19.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base@19.0.2/java.lang.reflect.Method.invoke(Method.java:578)
 	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -94,9 +94,9 @@
   </testcase>
   <testcase name="Test Remove from Empty Heap" classname="MinHeapTest" time="0.0"/>
   <testcase name="Test Peek from Empty Heap" classname="MinHeapTest" time="0.0"/>
-  <testcase name="Test ToString after Remove" classname="MinHeapTest" time="0.001"/>
+  <testcase name="Test ToString after Remove" classname="MinHeapTest" time="0.0"/>
   <testcase name="Test ToString with Empty Heap" classname="MinHeapTest" time="0.0"/>
-  <testcase name="Test Insert and Peek" classname="MinHeapTest" time="0.001"/>
+  <testcase name="Test Insert and Peek" classname="MinHeapTest" time="0.0"/>
   <testcase name="Test ToString with Single Element" classname="MinHeapTest" time="0.0"/>
   <testcase name="Test ToString with Multiple Elements" classname="MinHeapTest" time="0.001">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;[e, 0.1][c, 0.2][b, 0.3][d, 0.4][a, 0.5]&gt; but was: &lt;[e, 0.1][c, 0.2][b, 0.3][a, 0.5][d, 0.4]&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;[e, 0.1][c, 0.2][b, 0.3][d, 0.4][a, 0.5]&gt; but was: &lt;[e, 0.1][c, 0.2][b, 0.3][a, 0.5][d, 0.4]&gt;
@@ -105,7 +105,7 @@
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
 	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at app//MinHeapTest.testToStringMultipleElements(MinHeapTest.java:116)
+	at app//MinHeapTest.testToStringMultipleElements(MinHeapTest.java:119)
 	at java.base@19.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base@19.0.2/java.lang.reflect.Method.invoke(Method.java:578)
 	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
