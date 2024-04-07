@@ -14,7 +14,7 @@ public class Main {
         System.out.println("new tree made!\nStarting to encode file!");
         hTree.encodeFile("testFile.txt", "encodedFile.txt");
         System.out.println("Encoded File!");
-        hTree.decodeFile("encodeFile.txt");
+        hTree.decodeFile("encodedFile.txt", "decodedFile.txt");
         System.out.println("Decoded File!");
     }
 }

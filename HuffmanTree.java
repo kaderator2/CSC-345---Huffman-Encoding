@@ -5,6 +5,7 @@
 // Authors: Micaila Marcelle
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,7 +27,11 @@ public class HuffmanTree {
     // Setter method for the head of the tree
     public void setHead(TreeNode newHead) {
         head = newHead;
-        rootFrequency = newHead.getFrequency();
+        if (newHead == null) {
+            rootFrequency = 0;
+        } else {
+            rootFrequency = newHead.getFrequency();
+        }
     }
 
     // Getter method for the head of the tree
@@ -85,10 +90,6 @@ public class HuffmanTree {
             newRoot.setRight(tree2);
             newRoot.setFrequency(tree1.getFrequency() + tree2.getFrequency());
 
-            // Creates a new tree with this node as its head
-            // HuffmanTree newTree = new HuffmanTree();
-            // newTree.setHead(newRoot);
-
             // Inserts this new tree into the queue
             queue.enqueue(newRoot);
         }
@@ -107,7 +108,7 @@ public class HuffmanTree {
 
     // Determines the encoding of a given character. Note that this is done
     // recursively
-    private String determineEncoding(char givenChar, HuffmanTree tree, String encoding) {
+    private String determineEncoding(char givenChar, HuffmanTree tree) {
         // If curNode is null, then we've reached an empty subtree, so we return a
         // dummy string
         TreeNode curNode = tree.head();
@@ -115,19 +116,22 @@ public class HuffmanTree {
             return "E";
         }
 
-        // On the other hand, if curNode contains our character, we return our encoding
+        // On the other hand, if curNode contains our character, we return an empty string
         if (curNode.getChar() == "" + givenChar) {
-            return encoding;
+            return "";
         }
 
         // Otherwise, we determine encodings for each possible branch
         HuffmanTree leftTree = new HuffmanTree();
         leftTree.setHead(curNode.getLeft());
-        String encodingLeft = "0" + determineEncoding(givenChar, leftTree, encoding);
+        String encodingLeft = "0" + determineEncoding(givenChar, leftTree);
 
         HuffmanTree rightTree = new HuffmanTree();
         rightTree.setHead(curNode.getRight());
-        String encodingRight = "1" + determineEncoding(givenChar, rightTree, encoding);
+        String encodingRight = "1" + determineEncoding(givenChar, rightTree);
+
+        //System.out.println(encodingLeft);
+        //System.out.println(encodingRight);
 
         // Determines which encoding, if either, is correct
         if (encodingLeft.indexOf("E") == -1) {
@@ -155,10 +159,12 @@ public class HuffmanTree {
             return;
         }
 
-        // Creates a FileWriter object for the new file
+        // Creates a FileWriter object for the new file (and creates the new file itself)
         FileWriter writer;
         try {
-            writer = new FileWriter(encodedFilename);
+            File newFile = new File(encodedFilename);
+            newFile.createNewFile();
+            writer = new FileWriter(newFile);
         } catch (IOException e) {
             System.out.println("File not found: " + filename);
             return;
@@ -173,10 +179,13 @@ public class HuffmanTree {
             next = reader.read();
             while (next != -1) {
                 // Determines the encoding of the given character
-                String encoding = determineEncoding((char) next, tree, "");
+                String encoding = determineEncoding((char) next, tree);
 
                 // Writes this encoding to the file
                 writer.write(encoding);
+
+                // Gets the next character in the file
+                next = reader.read();
             }
 
             // Closes the reader
@@ -204,7 +213,9 @@ public class HuffmanTree {
         }
         FileWriter writer;
         try {
-            writer = new FileWriter(decodedFilename);
+            File newFile = new File(decodedFilename);
+            newFile.createNewFile();
+            writer = new FileWriter(newFile);
         } catch (IOException e) {
             System.out.println("Error creating file: " + decodedFilename);
             return;
@@ -248,6 +259,7 @@ public class HuffmanTree {
         }
     }
 
+/*
     // Decodes a given encoded file using the Huffman Tree and prints the output
     public void decodeFile(String encodedFilename) {
         // Handles creating the reader and the writer for new and pre-exisitng
@@ -297,4 +309,5 @@ public class HuffmanTree {
             System.out.println("Error: IOException");
         }
     }
+*/
 }

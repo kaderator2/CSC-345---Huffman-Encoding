@@ -53,6 +53,7 @@ public class FileRead {
             next = reader.read();
             while(next != -1) {
                 hashtable.add((char) next);
+                next = reader.read();
             }
 
             // Closes the reader
