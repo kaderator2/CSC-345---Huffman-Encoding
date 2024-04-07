@@ -108,27 +108,27 @@ public class HuffmanTree {
 
     // Determines the encoding of a given character. Note that this is done
     // recursively
-    private String determineEncoding(char givenChar, HuffmanTree tree) {
+    private String determineEncoding(char givenChar, TreeNode curNode) {
         // If curNode is null, then we've reached an empty subtree, so we return a
         // dummy string
-        TreeNode curNode = tree.head();
+        //TreeNode curNode = tree.head();
         if (curNode == null) {
             return "E";
         }
 
         // On the other hand, if curNode contains our character, we return an empty string
-        if (curNode.getChar() == "" + givenChar) {
+        if (curNode.getChar() != null && curNode.getChar().equals("" + givenChar)) {
             return "";
         }
 
         // Otherwise, we determine encodings for each possible branch
         HuffmanTree leftTree = new HuffmanTree();
         leftTree.setHead(curNode.getLeft());
-        String encodingLeft = "0" + determineEncoding(givenChar, leftTree);
+        String encodingLeft = "0" + determineEncoding(givenChar, curNode.getLeft());
 
         HuffmanTree rightTree = new HuffmanTree();
         rightTree.setHead(curNode.getRight());
-        String encodingRight = "1" + determineEncoding(givenChar, rightTree);
+        String encodingRight = "1" + determineEncoding(givenChar, curNode.getRight());
 
         //System.out.println(encodingLeft);
         //System.out.println(encodingRight);
@@ -136,10 +136,8 @@ public class HuffmanTree {
         // Determines which encoding, if either, is correct
         if (encodingLeft.indexOf("E") == -1) {
             return encodingLeft;
-        } else if (encodingRight.indexOf("E") == -1) {
-            return encodingRight;
         } else {
-            return "E";
+            return encodingRight;
         }
     }
 
@@ -179,7 +177,7 @@ public class HuffmanTree {
             next = reader.read();
             while (next != -1) {
                 // Determines the encoding of the given character
-                String encoding = determineEncoding((char) next, tree);
+                String encoding = determineEncoding((char) next, tree.head());
 
                 // Writes this encoding to the file
                 writer.write(encoding);
