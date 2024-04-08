@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.example'
@@ -21,4 +22,8 @@ test {
         exceptionFormat "full"
         showStandardStreams true
     }
+}
+
+application {
+    mainClass = 'Main'
 }

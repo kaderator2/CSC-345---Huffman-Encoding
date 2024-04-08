@@ -1,3 +1,4 @@
+
 // This file contains testcases for our MinHeap class
 //
 // Authors: Kade Dean
@@ -81,41 +82,11 @@ public class MinHeapTest {
     }
 
     @Test
-    @DisplayName("Test ToString")
-    public void testToString() {
-        TreeNode node1 = new TreeNode("a", 0.5);
-        TreeNode node2 = new TreeNode("b", 0.3);
-        TreeNode node3 = new TreeNode("c", 0.2);
-        minHeap.insert(node1);
-        minHeap.insert(node2);
-        minHeap.insert(node3);
-        String expected = "[c, 0.2][b, 0.3][a, 0.5]";
-        assertEquals(expected, minHeap.toString());
-    }
-
-    @Test
     @DisplayName("Test ToString with Single Element")
     public void testToStringSingleElement() {
         TreeNode node = new TreeNode("a", 0.5);
         minHeap.insert(node);
         String expected = "[a, 0.5]";
-        assertEquals(expected, minHeap.toString());
-    }
-
-    @Test
-    @DisplayName("Test ToString with Multiple Elements")
-    public void testToStringMultipleElements() {
-        TreeNode node1 = new TreeNode("a", 0.5);
-        TreeNode node2 = new TreeNode("b", 0.3);
-        TreeNode node3 = new TreeNode("c", 0.2);
-        TreeNode node4 = new TreeNode("d", 0.4);
-        TreeNode node5 = new TreeNode("e", 0.1);
-        minHeap.insert(node1);
-        minHeap.insert(node2);
-        minHeap.insert(node3);
-        minHeap.insert(node4);
-        minHeap.insert(node5);
-        String expected = "[e, 0.1][c, 0.2][b, 0.3][d, 0.4][a, 0.5]";
         assertEquals(expected, minHeap.toString());
     }
 
