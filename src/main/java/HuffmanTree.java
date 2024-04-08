@@ -2,7 +2,7 @@
 // with a left and right child), and which are organized to ensure that only leaf
 // nodes contain the characters that are being encoded.
 //
-// Authors: Micaila Marcelle
+// Authors: Micaila Marcelle, Kade Dean
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class HuffmanTree {
     // Declares the instance variables associated with the Huffman Tree, which
-    // include the node at the head of the tree and the number of characters 
+    // include the node at the head of the tree and the number of characters
     // within the tree.
     private TreeNode head;
     private double rootFrequency;
@@ -73,6 +73,9 @@ public class HuffmanTree {
         // Obtains the hashtable containing the frequencies of all of the characters
         FileRead reader = new FileRead();
         HashTable hashtable = reader.determineFrequencies(filename);
+        if (hashtable == null) {
+            return null;
+        }
 
         // Constructs a PriorityQueue containing a Huffman Tree for each character
         // in the file
@@ -111,12 +114,13 @@ public class HuffmanTree {
     private String determineEncoding(char givenChar, TreeNode curNode) {
         // If curNode is null, then we've reached an empty subtree, so we return a
         // dummy string
-        //TreeNode curNode = tree.head();
+        // TreeNode curNode = tree.head();
         if (curNode == null) {
             return "E";
         }
 
-        // On the other hand, if curNode contains our character, we return an empty string
+        // On the other hand, if curNode contains our character, we return an empty
+        // string
         if (curNode.getChar() != null && curNode.getChar().equals("" + givenChar)) {
             return "";
         }
@@ -130,8 +134,8 @@ public class HuffmanTree {
         rightTree.setHead(curNode.getRight());
         String encodingRight = "1" + determineEncoding(givenChar, curNode.getRight());
 
-        //System.out.println(encodingLeft);
-        //System.out.println(encodingRight);
+        // System.out.println(encodingLeft);
+        // System.out.println(encodingRight);
 
         // Determines which encoding, if either, is correct
         if (encodingLeft.indexOf("E") == -1) {
@@ -157,7 +161,8 @@ public class HuffmanTree {
             return;
         }
 
-        // Creates a FileWriter object for the new file (and creates the new file itself)
+        // Creates a FileWriter object for the new file (and creates the new file
+        // itself)
         FileWriter writer;
         try {
             File newFile = new File(encodedFilename);
@@ -256,56 +261,4 @@ public class HuffmanTree {
             System.out.println("Error: IOException");
         }
     }
-
-/*
-    // Decodes a given encoded file using the Huffman Tree and prints the output
-    public void decodeFile(String encodedFilename) {
-        // Handles creating the reader and the writer for new and pre-exisitng
-        // file
-        String result = "";
-        BufferedReader reader;
-        try {
-            reader = new BufferedReader(new FileReader(encodedFilename));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + encodedFilename);
-            return;
-        }
-
-        // Reads through the encoded file, character by character, decoding the
-        // content using the Huffman Tree and writing the decoded characters to
-        // the new file
-        int next;
-        TreeNode curNode = head;
-        try {
-            // Gets the next character from the file, then loops until we run
-            // out of characters
-            next = reader.read();
-            while (next != -1) {
-                // Traverses the Huffman Tree based on the encoded bit
-                if (next == '0') {
-                    curNode = curNode.getLeft();
-                } else if (next == '1') {
-                    curNode = curNode.getRight();
-                }
-
-                // If a leaf node is reached, write the corresponding character to
-                // the decoded file and reset the currentNode to the root
-                if (curNode.getChar() != null) {
-                    result += curNode.getChar();
-                    curNode = head;
-                }
-
-                // Read the next character from the encoded file
-                next = reader.read();
-            }
-
-            // Closes the reader
-            reader.close();
-            // Prints the result
-            System.out.println(result);
-        } catch (IOException ioe) {
-            System.out.println("Error: IOException");
-        }
-    }
-*/
 }

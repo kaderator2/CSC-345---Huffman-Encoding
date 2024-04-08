@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MinHeap Test" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-04-08T20:16:30" hostname="DESKTOP-3JLUF70" time="0.008">
+  <properties/>
+  <testcase name="Test Insert and Remove" classname="MinHeapTest" time="0.001"/>
+  <testcase name="Test Remove from Empty Heap" classname="MinHeapTest" time="0.0"/>
+  <testcase name="Test Peek from Empty Heap" classname="MinHeapTest" time="0.0"/>
+  <testcase name="Test ToString after Remove" classname="MinHeapTest" time="0.004"/>
+  <testcase name="Test ToString with Empty Heap" classname="MinHeapTest" time="0.001"/>
+  <testcase name="Test Insert and Peek" classname="MinHeapTest" time="0.0"/>
+  <testcase name="Test ToString with Single Element" classname="MinHeapTest" time="0.001"/>
+  <testcase name="Test Resize" classname="MinHeapTest" time="0.0"/>
+  <testcase name="Test Heap Order Property" classname="MinHeapTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -17,56 +17,61 @@ public class HashTable {
     public HashTable() {
         table = new HashNode[size];
         numElements = 0;
-;    }
-    // debugging method that prints the contents of the table
-	public static void printTable() {
-    	
-    	for (int k = 0; k < numElements;k++) {
-    		System.out.print(table[k].nodeChar + " ");
-    	}
-    	System.out.print("\n");
+        ;
     }
+
+    // debugging method that prints the contents of the table
+    public static void printTable() {
+
+        for (int k = 0; k < numElements; k++) {
+            System.out.print(table[k].nodeChar + " ");
+        }
+        System.out.print("\n");
+    }
+
     // Method for adding a character to the hashtable. Note that if the character
     // already exists, this should simply increment the count, and that if the table
     // becomes more than half full, then we resize
     public void add(char givenCharacter) {
-    	int index = contains(givenCharacter, table);
-    	if(index != -1) {
-    		table[index].count++;
-    		
-    	}
-    	else{
-    		HashNode insert = new HashNode(givenCharacter);
-    		table[numElements] = insert;
-    		numElements++;
-    		
-    	}
-    	//replace the og table with a new table double the size and with the same values.
-    	if (numElements >= (size/2)) {
-    		HashNode[] newTable = new HashNode[size*2];
-    		for (int j = 0; j < numElements;j++) {
-    			newTable[j] = table[j];
-    		}
-    		table = newTable;
-    	}
+        int index = contains(givenCharacter, table);
+        if (index != -1) {
+            table[index].count++;
+
+        } else {
+            HashNode insert = new HashNode(givenCharacter);
+            table[numElements] = insert;
+            numElements++;
+
+        }
+        // replace the og table with a new table double the size and with the same
+        // values.
+        if (numElements >= (size / 2)) {
+            HashNode[] newTable = new HashNode[size * 2];
+            for (int j = 0; j < numElements; j++) {
+                newTable[j] = table[j];
+            }
+            table = newTable;
+        }
     }
-    //returns character at given index
+
+    // returns character at given index
     public char getChar(int index) {
-    	return table[index].nodeChar;
-    } 
+        return table[index].nodeChar;
+    }
+
     public int getFrequency(int index) {
-    	return table[index].count;
-    } 
-   
+        return table[index].count;
+    }
+
     // Method that checks to see if a target character is within a HashTable.
     // returns the index of the target character or -1 if index is not found.
-    private int contains(char target, HashNode[] table) {
-    	for(int i = 0; i < numElements;i++) {
-    		if (table[i].nodeChar == target) {
-    			return i;
-    		}
-    	}
-    	return -1;
+    public int contains(char target, HashNode[] table) {
+        for (int i = 0; i < numElements; i++) {
+            if (table[i].nodeChar == target) {
+                return i;
+            }
+        }
+        return -1;
     }
-   
+
 }
