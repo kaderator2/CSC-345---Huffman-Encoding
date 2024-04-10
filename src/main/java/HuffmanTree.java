@@ -176,18 +176,26 @@ public class HuffmanTree {
         }
 
         // Reads through the given file, character by character, writing encodings
-        // to the new file as we go
+        // to the new file as we go. Uses a HashTable in order to find previous 
+        // encodings and avoid doing additional work
         int next;
+        HashTable hashtable = new HashTable();
         try {
             // Gets the next character from the file, then loops until we run
             // out of characters
             next = reader.read();
             while (next != -1) {
-                // Determines the encoding of the given character
-                String encoding = determineEncoding((char) next, tree.head());
-
-                // Writes this encoding to the file
-                writer.write(encoding);
+                // Checks to see whether the character is in our hashtable
+                String encoding = hashtable.findEncoding((char) next);
+                if (encoding != null) {
+                    // If so, we simply add its encoding
+                    writer.write(encoding);
+                } else {
+                    // Otherwise, we find the encoding, then add to our hashtable
+                    encoding = determineEncoding((char) next, tree.head());
+                    hashtable.add((char) next, encoding);
+                    writer.write(encoding);
+                }
 
                 // Gets the next character in the file
                 next = reader.read();

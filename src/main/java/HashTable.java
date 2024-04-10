@@ -124,6 +124,29 @@ public class HashTable {
 
 	}
 
+	// Determines the encoding for a particular character, returning null if that
+	// character is not in our table
+	public String findEncoding(char givenChar) {
+		int hash = hash(givenChar);
+
+		// Probes until we hit null
+		int numIterations = 0;
+		HashNode curNode = table[hash];
+		while (curNode != null && numIterations < table.length) {
+			// If curNode has our char, we return its encoding
+			if (curNode.getChar() == givenChar) {
+				return curNode.getEncoding();
+			}
+
+			// Updates curNode
+			hash = (hash + 1) % table.length;
+			curNode = table[hash];
+		}
+
+		// Otherwise, returns null
+		return null;
+	}
+
 	// private method used for resizing,
 	// doubles the size of the table while preserving the indices.
 	private void resize() {
@@ -172,7 +195,7 @@ public class HashTable {
 				if (table[index].getChar() == givenChar) {
 					return table[index].getCount();
 				}
-				index++;
+				index = (index + 1) % table.length;
 			}
 		}
 		return -1;
