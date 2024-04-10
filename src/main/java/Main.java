@@ -1,3 +1,5 @@
+package src.main.java;
+
 // This class acts as the main driver code to run and implement all our
 // other written java files and output the huffman encoding data.
 //

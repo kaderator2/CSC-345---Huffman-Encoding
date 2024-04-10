@@ -1,3 +1,5 @@
+package src.main.java;
+
 // Implements the functionality of a HashTable, which will be used to store the 
 // frequencies of different characters within a given file. In other words, the
 // keys will be chars, while the associated values will be counts of these characters
@@ -21,15 +23,72 @@ public class HashTable {
 	}
 
 	private int hash(char givenCharacter) {
-		return Math.abs(Character.hashCode(givenCharacter)) % size;
+		return (Character.hashCode(givenCharacter) & 0x7fffffff) % size;
 	}
 
-	// Method for adding a character to the hashtable. Note that if the character
+	// Wrapper method for actually adding to the hashtable
+	public void add(char givenCharacter, String encoding) {
+		insert(givenCharacter, encoding, table);
+
+		// Resizes the table up, if necessary
+		if ((numElements * 1.0) / table.length > 0.5) {
+			resize();
+		}
+	}
+
+	// Method for adding a character to an underlying array. Note that if the character
 	// already exists, this should simply increment the count, and that if the table
 	// becomes more than half full, then we resize
-	public void add(char givenCharacter) {
-		int index = hash(givenCharacter);
+	private void insert(char givenCharacter, String encoding, HashNode[] givenArray) {
+		int hash = hash(givenCharacter);
 
+		// Loops through the hash table
+		int numIterations = 0;
+		while (numIterations <= givenArray.length) {
+			// If the current element is null, then we simply place our element here
+			if (givenArray[hash] == null) {
+				givenArray[hash] = new HashNode(givenCharacter);
+				givenArray[hash].setEncoding(encoding);
+				numElements++;
+				return;
+			}
+
+			// If the current element is our element (and not a tombstone), we increment
+			if (givenArray[hash].getChar() == givenCharacter && givenArray[hash].getTombstone() == false) {
+				givenArray[hash].incrementCount();
+				return;
+			}
+
+			// If the current element is a tombstone, we check to see whether there 
+			// are any duplicates
+			if (givenArray[hash].getTombstone() == true) {
+				int numProbes = 0;
+				int cur = (hash + 1) % size;
+				while (numProbes <= size) {
+					if (givenArray[cur] == null) {
+						// If we find an empty position, we just replace the tombstone
+						givenArray[hash] = new HashNode(givenCharacter);
+						givenArray[hash].setEncoding(encoding);
+						numElements++;
+						return;
+					}
+
+					if (givenArray[cur].getChar() == givenCharacter) {
+						// If we find a duplicate, we increment count
+						givenArray[cur].incrementCount();
+						return;
+					}
+					numProbes++;
+				}
+			}
+
+			// Updates the number of iterations and our hash value
+			numIterations++;
+			hash = (hash + 1) % givenArray.length;
+		}
+
+
+		/* 
 		if (table[index] == null || table[index].getTombstone()) {
 			// Space is available, insert a new HashNode
 			table[index] = new HashNode(givenCharacter);
@@ -61,21 +120,21 @@ public class HashTable {
 		if (numElements > (size / 2)) {
 			resize();
 		}
+		*/
 
 	}
 
 	// private method used for resizing,
 	// doubles the size of the table while preserving the indices.
 	private void resize() {
-		int newSize = size * 2;
+		int newSize = (size * 6) - 1;
 		HashNode[] newTable = new HashNode[newSize];
 
-		// Transfer all the elements to the new table while maintaining their relative
-		// positions
+		// Transfer all the elements to the new table, rehashing them as we do so
 		for (int i = 0; i < size; i++) {
 			HashNode node = table[i];
-			if (node != null) {
-				newTable[i] = node;
+			if (node != null && node.getTombstone() != true) {
+				insert(node.getChar(), node.getEncoding(), newTable);
 			}
 		}
 
@@ -131,12 +190,12 @@ public class HashTable {
 	}
 	public static void main(String[] args) {
 		HashTable testHash = new HashTable();
-		testHash.add('p');
-		testHash.add('e');
-		testHash.add('e');
-		testHash.add('i');
-		testHash.add('n');
-		testHash.add('g');
+		testHash.add('p', "");
+		testHash.add('e', "");
+		testHash.add('e', "");
+		testHash.add('i', "");
+		testHash.add('n', "");
+		testHash.add('g', "");
 		testHash.printHashTable();
 		System.out.print(testHash.getCount('e') + "\n");
 		System.out.print(testHash.isNull(7) + "\n");

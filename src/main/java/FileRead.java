@@ -1,3 +1,7 @@
+package src.main.java;
+
+
+
 // This class implements the functions that will be necessary for reading a given
 // file and determining the frequency of each character within the file
 //
@@ -52,7 +56,7 @@ public class FileRead {
             // out of characters
             next = reader.read();
             while (next != -1) {
-                hashtable.add((char) next);
+                hashtable.add((char) next, "");
                 next = reader.read();
             }
 

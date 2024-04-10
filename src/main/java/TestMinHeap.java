@@ -1,3 +1,5 @@
+package src.main.java;
+
 public class TestMinHeap {
 
   public static void main(String[] args) {

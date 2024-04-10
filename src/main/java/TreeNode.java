@@ -1,3 +1,5 @@
+package src.main.java;
+
 // This class implements the TreeNode, which will be used to construct HuffmanTrees.
 // Each TreeNode has a left and right child, along with a stored frequency value 
 // and a stored encoded character (for non-leaf values)

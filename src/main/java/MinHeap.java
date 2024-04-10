@@ -1,3 +1,5 @@
+package src.main.java;
+
 /*
  * @Author: Edward Fattell
  * Models a binary heap for Huffman Tree nodes where the root is the minimum value of the heap

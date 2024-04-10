@@ -4,6 +4,8 @@
 //
 // Authors: Kade Dean
 
+import src.main.java.HuffmanTree;
+
 public class Main {
     public static void main(String[] args) {
         // FileRead fileRead = new FileRead();

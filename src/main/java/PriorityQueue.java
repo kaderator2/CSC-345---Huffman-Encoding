@@ -1,3 +1,5 @@
+package src.main.java;
+
 /*
  * @Author: Edward Fattell
  * Object to model a Descending PriorityQueue of Huffman TreeNodes where the the minimum

@@ -1,3 +1,5 @@
+package src.main.java;
+
 // This class is used to construct Huffman trees, which consist of TreeNodes (each 
 // with a left and right child), and which are organized to ensure that only leaf
 // nodes contain the characters that are being encoded.
