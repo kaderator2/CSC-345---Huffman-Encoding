@@ -6,13 +6,15 @@ package src.main.java;
  *
  */
 public class MinHeap {
-  TreeNode[] heap;
-  int size;
-  final int ROOT = 1;
+  private TreeNode[] heap;
+  private int size;
+  private final int ROOT = 1;
+  private final int ORIGCAP;
 
   public MinHeap() {
     size = 0;
     heap = new TreeNode[10];
+    ORIGCAP = 10;
   }
 
   /*
@@ -47,6 +49,13 @@ public class MinHeap {
     sink(ROOT);
 
     return result;
+  }
+
+  /*
+   * Returns current size of the Heap
+   */
+  public int size() {
+    return size;
   }
 
   /*
@@ -106,11 +115,22 @@ public class MinHeap {
    * Resize enlarges the array if required by a scale of 2
    */
   private void resize() {
-    TreeNode[] newArr = new TreeNode[2 * heap.length];
-    for (int i = 0; i < heap.length; i++) {
-      newArr[i] = heap[i];
+    if (size > (float) heap.length / 2) {
+      TreeNode[] newArr = new TreeNode[2 * heap.length];
+      for (int i = 0; i < heap.length; i++) {
+        newArr[i] = heap[i];
+      }
+      heap = newArr;
+    } else if (size < heap.length / 4) {
+      if (heap.length / 2 >= ORIGCAP) {
+        TreeNode[] newArr = new TreeNode[heap.length / 2];
+        for (int i = 0; i < heap.length; i++) {
+          newArr[i] = heap[i];
+        }
+        heap = newArr;
+      }
     }
-    heap = newArr;
+
   }
 
   /*

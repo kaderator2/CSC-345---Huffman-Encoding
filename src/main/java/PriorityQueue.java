@@ -21,7 +21,7 @@ public class PriorityQueue {
     this.heap = new MinHeap();
 
     for (int i = 0; i < table.size; i++) {
-      if (table.table[i] != null) { // Right now, this is the only way to check if an index is null
+      if (!table.isNull(i)) {
         TreeNode tn = new TreeNode();
         tn.setChar("" + table.getChar(i));
         tn.setFrequency(table.getFrequency(i));
@@ -55,6 +55,6 @@ public class PriorityQueue {
    * Returns the number of elements presently in the queue
    */
   public int size() {
-    return heap.size;
+    return heap.size();
   }
 }
