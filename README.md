@@ -36,7 +36,7 @@ To get started with the project, follow these steps:
 
 1. Clone the project repository:
 
-```git clone https://github.com/your-username/huffman-encoding.git```
+```git clone https://github.com/your-username/huffman-encoding.git huffman-encoding```
 
 2. Navigate to the project directory:
 
