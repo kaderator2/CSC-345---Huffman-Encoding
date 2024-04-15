@@ -4,8 +4,8 @@ This project implements Huffman encoding, a lossless data compression algorithm,
 ## Project Structure
 The project follows a standard Java project structure and uses Gradle as the build tool. Here's an overview of the project structure:
 
-
-```project-directory/
+```
+project-directory/
 ├── build.gradle
 └── src/
     ├── main/
@@ -23,7 +23,8 @@ The project follows a standard Java project structure and uses Gradle as the bui
             ├── TreeNodeTest.java
             ├── HashNodeTest.java
             ├── HashTableTest.java
-            └── PriorityQueueTest.java```
+            └── PriorityQueueTest.java
+```
 ## Prerequisites
 Before running the project, ensure that you have the following prerequisites installed:
 
@@ -36,17 +37,21 @@ To get started with the project, follow these steps:
 1. Clone the project repository:
 
 ```git clone https://github.com/your-username/huffman-encoding.git```
+
 2. Navigate to the project directory:
 
 ```cd huffman-encoding```
+
 3. Build the project using Gradle:
 
 ```./gradlew build```
+
 This command will compile the source code, run the tests, and generate the project artifacts.
 ## Running the Application
 To run the Huffman encoding application, use the following Gradle command:
 
 ```./gradlew run```
+
 This command will execute the main method in the Main class, which demonstrates the usage of Huffman encoding and decoding.
 
 ## Running Tests
