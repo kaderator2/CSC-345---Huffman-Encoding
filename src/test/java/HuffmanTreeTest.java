@@ -36,6 +36,13 @@ public class HuffmanTreeTest {
         Path inputFilePath = tempDir.resolve(inputFilename);
         Files.write(inputFilePath, inputContent.getBytes());
 
+        // Assert that the input file exists
+        assertTrue(Files.exists(inputFilePath));
+
+        // Assert that the input file content matches the expected content
+        String actualInputContent = new String(Files.readAllBytes(inputFilePath));
+        assertEquals(inputContent, actualInputContent);
+
         // Create temporary filenames for encoded and decoded files
         String encodedFilename = "encoded.txt";
         String decodedFilename = "decoded.txt";
@@ -49,17 +56,24 @@ public class HuffmanTreeTest {
         // Encode the input file
         huffmanTree.encodeFile(inputFilePath.toString(), encodedFilePath.toString());
 
-        // Verify that the encoded file exists
+        // Assert that the encoded file exists
         assertTrue(Files.exists(encodedFilePath));
+
+        // Assert that the encoded file is not empty
+        long encodedFileSize = Files.size(encodedFilePath);
+        assertTrue(encodedFileSize > 0);
 
         // Decode the encoded file
         huffmanTree.decodeFile(encodedFilePath.toString(), decodedFilePath.toString());
 
-        // Verify that the decoded file exists
+        // Assert that the decoded file exists
         assertTrue(Files.exists(decodedFilePath));
 
         // Read the content of the decoded file
         String decodedContent = new String(Files.readAllBytes(decodedFilePath));
+
+        // Assert that the decoded content is not empty
+        assertFalse(decodedContent.isEmpty());
 
         // Verify that the decoded content matches the original input content
         assertEquals(inputContent, decodedContent);

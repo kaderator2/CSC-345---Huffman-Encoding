@@ -176,7 +176,7 @@ public class HuffmanTree {
         }
 
         // Reads through the given file, character by character, writing encodings
-        // to the new file as we go. Uses a HashTable in order to find previous 
+        // to the new file as we go. Uses a HashTable in order to find previous
         // encodings and avoid doing additional work
         int next;
         HashTable hashtable = new HashTable();
@@ -253,8 +253,14 @@ public class HuffmanTree {
 
                 // If a leaf node is reached, write the corresponding character to
                 // the decoded file and reset the currentNode to the root
-                if (curNode.getChar() != null) {
+                if (curNode != null && curNode.getChar() != null) {
                     writer.write(curNode.getChar());
+                    curNode = head;
+                } else if (curNode == null) {
+                    // If curNode becomes null, it means the encoded file contains
+                    // an invalid bit sequence. In this case, we can either throw an
+                    // exception, log an error, or reset curNode to the root and continue
+                    // decoding. Here, we choose to reset curNode to the root.
                     curNode = head;
                 }
 
