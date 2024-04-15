@@ -5,7 +5,7 @@ This project implements Huffman encoding, a lossless data compression algorithm,
 The project follows a standard Java project structure and uses Gradle as the build tool. Here's an overview of the project structure:
 
 
-project-directory/
+```project-directory/
 ├── build.gradle
 └── src/
     ├── main/
@@ -23,7 +23,7 @@ project-directory/
             ├── TreeNodeTest.java
             ├── HashNodeTest.java
             ├── HashTableTest.java
-            └── PriorityQueueTest.java
+            └── PriorityQueueTest.java```
 ## Prerequisites
 Before running the project, ensure that you have the following prerequisites installed:
 
