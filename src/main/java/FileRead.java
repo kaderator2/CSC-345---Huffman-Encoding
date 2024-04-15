@@ -1,7 +1,5 @@
 package src.main.java;
 
-
-
 // This class implements the functions that will be necessary for reading a given
 // file and determining the frequency of each character within the file
 //

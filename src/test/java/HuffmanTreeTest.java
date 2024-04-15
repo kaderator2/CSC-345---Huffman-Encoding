@@ -1,3 +1,5 @@
+package src.test.java;
+
 // This file contains testcases for our huffmanTree class
 //
 // Authors: Kade Dean
@@ -5,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import src.main.java.HuffmanTree;
 
 import java.io.File;
 import java.io.FileWriter;

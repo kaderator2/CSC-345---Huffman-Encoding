@@ -1,3 +1,4 @@
+package src.test.java;
 
 // This file contains testcases for our MinHeap class
 //
@@ -6,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import src.main.java.MinHeap;
+import src.main.java.TreeNode;
 
 @DisplayName("MinHeap Test")
 public class MinHeapTest {
@@ -61,12 +64,12 @@ public class MinHeapTest {
     @Test
     @DisplayName("Test Resize")
     public void testResize() {
-        int initialSize = minHeap.heap.length;
+        int initialSize = minHeap.getHeap().length;
         for (int i = 0; i < initialSize; i++) {
             TreeNode node = new TreeNode(String.valueOf(i), i);
             minHeap.insert(node);
         }
-        assertTrue(minHeap.heap.length > initialSize);
+        assertTrue(minHeap.getHeap().length > initialSize);
     }
 
     @Test

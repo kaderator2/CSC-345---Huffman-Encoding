@@ -1,3 +1,5 @@
+package src.test.java;
+
 // This file contains testcases for our TreeNode class
 //
 // Authors: Kade Dean
@@ -5,6 +7,7 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import src.main.java.TreeNode;
 
 @DisplayName("TreeNode Test")
 public class TreeNodeTest {

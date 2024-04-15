@@ -1,10 +1,11 @@
+package src.test.java;
 
 // This file contains testcases for our HashNode class
 //
 // Authors: Kade Dean
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+import src.main.java.HashNode;
 
 import static org.junit.jupiter.api.Assertions.*;
 

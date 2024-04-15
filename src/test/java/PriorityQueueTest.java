@@ -1,3 +1,5 @@
+package src.test.java;
+
 // This file contains testcases for our PriorityQueue class
 //
 // Authors: Kade Dean
@@ -5,6 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import src.main.java.PriorityQueue;
+import src.main.java.TreeNode;
+import src.main.java.HashTable;
 
 @DisplayName("PriorityQueue Test")
 public class PriorityQueueTest {
@@ -67,11 +72,11 @@ public class PriorityQueueTest {
     @DisplayName("Test Constructor with HashTable")
     public void testConstructorWithHashTable() {
         HashTable table = new HashTable();
-        table.add('a');
-        table.add('b');
-        table.add('c');
-        table.add('a');
-        table.add('b');
+        table.add('a', "");
+        table.add('b', "");
+        table.add('c', "");
+        table.add('a', "");
+        table.add('b', "");
         priorityQueue = new PriorityQueue(table);
         assertEquals(3, priorityQueue.size());
         assertEquals("c", priorityQueue.dequeue().getChar());
