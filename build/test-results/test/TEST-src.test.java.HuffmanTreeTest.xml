@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HuffmanTree Test" tests="3" skipped="0" failures="1" errors="0" timestamp="2024-04-15T21:40:54" hostname="DESKTOP-3JLUF70" time="0.038">
+<testsuite name="HuffmanTree Test" tests="3" skipped="0" failures="1" errors="0" timestamp="2024-04-15T22:03:10" hostname="DESKTOP-3JLUF70" time="0.039">
   <properties/>
   <testcase name="Test Encoding and Decoding with Empty File" classname="src.test.java.HuffmanTreeTest" time="0.031"/>
   <testcase name="Test Encoding and Decoding with Non-Existent File" classname="src.test.java.HuffmanTreeTest" time="0.002"/>
-  <testcase name="Test Encoding and Decoding" classname="src.test.java.HuffmanTreeTest" time="0.004">
+  <testcase name="Test Encoding and Decoding" classname="src.test.java.HuffmanTreeTest" time="0.005">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;false&gt; but was: &lt;true&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;false&gt; but was: &lt;true&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:40)

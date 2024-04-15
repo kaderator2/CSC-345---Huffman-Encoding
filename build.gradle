@@ -14,16 +14,19 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
 
+application {
+    mainClass = 'src.main.java.Main'
+}
+
 test {
     useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
-        // events "failed"
         exceptionFormat "full"
         showStandardStreams true
     }
 }
 
-application {
-    mainClass = 'src.main.java.Main'
+task buildWithoutTests(type: GradleBuild) {
+    tasks = ['clean', 'compileJava']
 }

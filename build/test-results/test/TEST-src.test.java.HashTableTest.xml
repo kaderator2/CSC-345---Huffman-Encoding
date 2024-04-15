@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HashTable Test" tests="8" skipped="0" failures="3" errors="0" timestamp="2024-04-15T21:40:54" hostname="DESKTOP-3JLUF70" time="0.016">
+<testsuite name="HashTable Test" tests="8" skipped="0" failures="3" errors="0" timestamp="2024-04-15T22:03:10" hostname="DESKTOP-3JLUF70" time="0.019">
   <properties/>
   <testcase name="Test Add and Get Count" classname="src.test.java.HashTableTest" time="0.001"/>
-  <testcase name="Test Add and Get Char" classname="src.test.java.HashTableTest" time="0.004">
+  <testcase name="Test Add and Get Char" classname="src.test.java.HashTableTest" time="0.005">
     <failure message="java.lang.NullPointerException: Cannot invoke &quot;src.main.java.HashNode.getChar()&quot; because &quot;src.main.java.HashTable.table[index]&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;src.main.java.HashNode.getChar()&quot; because &quot;src.main.java.HashTable.table[index]&quot; is null
 	at src.main.java.HashTable.getChar(HashTable.java:230)
 	at src.test.java.HashTableTest.testAddAndGetChar(HashTableTest.java:45)
@@ -89,8 +89,8 @@
 </failure>
   </testcase>
   <testcase name="Test Add Duplicate Characters" classname="src.test.java.HashTableTest" time="0.001"/>
-  <testcase name="Test Empty HashTable" classname="src.test.java.HashTableTest" time="0.0"/>
-  <testcase name="Test Add and Find Encoding" classname="src.test.java.HashTableTest" time="0.004"/>
+  <testcase name="Test Empty HashTable" classname="src.test.java.HashTableTest" time="0.001"/>
+  <testcase name="Test Add and Find Encoding" classname="src.test.java.HashTableTest" time="0.006"/>
   <testcase name="Test Add Multiple Characters" classname="src.test.java.HashTableTest" time="0.003">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;26&gt; but was: &lt;42&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;26&gt; but was: &lt;42&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
@@ -181,7 +181,7 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="Test Is Null" classname="src.test.java.HashTableTest" time="0.0">
+  <testcase name="Test Is Null" classname="src.test.java.HashTableTest" time="0.001">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;false&gt; but was: &lt;true&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;false&gt; but was: &lt;true&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:40)
@@ -270,7 +270,7 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="Test Resize" classname="src.test.java.HashTableTest" time="0.0"/>
+  <testcase name="Test Resize" classname="src.test.java.HashTableTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
