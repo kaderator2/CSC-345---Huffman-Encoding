@@ -23,13 +23,15 @@ public class Main {
         hTree.encodeFile(fileName, "encodedFile.txt");
         Path encodedFilePath = Paths.get("encodedFile.txt");
         System.out.println("Encoded File!");
-        long encodedFileSize = Files.size(encodedFilePath);
-        System.out.println("File size after encoding: " + encodedFileSize + " bytes");
+        String encodedContent = new String(Files.readAllBytes(encodedFilePath));
+        System.out.println("File size after encoding: " + encodedContent.length() / 8 + " bytes");
 
         hTree.decodeFile("encodedFile.txt", "decodedFile.txt");
         System.out.println("Decoded File!");
         Path decodeFilePath = Paths.get("decodedFile.txt");
         long dedecodedFileSize = Files.size(decodeFilePath);
         System.out.println("File size after decoding: " + dedecodedFileSize + " bytes");
+
+        System.out.println("\nWe saved " + (decodedFileSize - (encodedContent.length() / 8)) + " bytes!");
     }
 }
