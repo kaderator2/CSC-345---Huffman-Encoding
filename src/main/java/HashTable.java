@@ -6,7 +6,7 @@
 // Authors: Micaila Marcelle, Ethan Quimpo, Kade Dean
 
 public class HashTable {
-    // Declares the instance variables necessary for the hashtable. These include
+    // Declares the instance variables necessary for the hashtable. These include 
     // the table itself and the number of key-value pairs currently in the table.
     // Note that the table is an array of HashNode objects
     static HashNode[] table;
