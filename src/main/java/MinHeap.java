@@ -30,9 +30,7 @@ public class MinHeap {
    * Inserts TreeNode and re heapifies
    */
   public void insert(TreeNode n) {
-    if (size >= heap.length - 1) {
-      resize();
-    }
+    resize();
     heap[size + 1] = n;
 
     swim(size + 1);
@@ -130,16 +128,17 @@ public class MinHeap {
         newArr[i] = heap[i];
       }
       heap = newArr;
-    } else if (size < heap.length / 4) {
-      if (heap.length / 2 >= ORIGCAP) {
-        TreeNode[] newArr = new TreeNode[heap.length / 2];
-        for (int i = 0; i < heap.length; i++) {
-          newArr[i] = heap[i];
-        }
-        heap = newArr;
+    } else if (size < (float) heap.length / 4) {
+      int newSize = heap.length / 2;
+      if ((float) heap.length / 2 < ORIGCAP) {
+        newSize = ORIGCAP;
       }
+      TreeNode[] newArr = new TreeNode[newSize];
+      for (int i = 0; i < newSize; i++) {
+        newArr[i] = heap[i];
+      }
+      heap = newArr;
     }
-
   }
 
   /*
