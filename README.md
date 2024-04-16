@@ -23,7 +23,7 @@ project-directory/
             ├── TreeNodeTest.java
             ├── HashNodeTest.java
             ├── HashTableTest.java
-            ├── HashNodeTest.java
+            ├── MinHeapTest.java
             └── PriorityQueueTest.java
 ```
 ## Prerequisites
