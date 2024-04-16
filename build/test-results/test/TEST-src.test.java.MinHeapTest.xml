@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MinHeap Test" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-04-16T01:58:57" hostname="DESKTOP-3JLUF70" time="0.009">
+  <properties/>
+  <testcase name="Test Insert and Remove" classname="src.test.java.MinHeapTest" time="0.001"/>
+  <testcase name="Test Remove from Empty Heap" classname="src.test.java.MinHeapTest" time="0.0"/>
+  <testcase name="Test Peek from Empty Heap" classname="src.test.java.MinHeapTest" time="0.0"/>
+  <testcase name="Test ToString after Remove" classname="src.test.java.MinHeapTest" time="0.004"/>
+  <testcase name="Test ToString with Empty Heap" classname="src.test.java.MinHeapTest" time="0.0"/>
+  <testcase name="Test Insert and Peek" classname="src.test.java.MinHeapTest" time="0.0"/>
+  <testcase name="Test ToString with Single Element" classname="src.test.java.MinHeapTest" time="0.0"/>
+  <testcase name="Test Resize" classname="src.test.java.MinHeapTest" time="0.0"/>
+  <testcase name="Test Heap Order Property" classname="src.test.java.MinHeapTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

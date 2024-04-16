@@ -14,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,55 +29,75 @@ public class HuffmanTreeTest {
     }
 
     @Test
-    @DisplayName("Test Encoding and Decoding")
-    public void testEncodingAndDecoding(@TempDir Path tempDir) throws IOException {
-        // Create a temporary input file
-        String inputFilename = "input.txt";
-        String inputContent = "Hello, World!";
-        Path inputFilePath = tempDir.resolve(inputFilename);
-        Files.write(inputFilePath, inputContent.getBytes());
+    @DisplayName("Test Encoding and Decoding 1")
+    public void testEncodingAndDecoding1() throws IOException {
+        String inputPath = "testFile1.txt";
+        String outputPath = "output.txt";
+        HuffmanTree hTree = huffmanTree.constructTree(inputPath);
 
-        // Assert that the input file exists
-        assertTrue(Files.exists(inputFilePath));
+        Path input = Paths.get(inputPath);
+        String content = new String(Files.readAllBytes(input));
 
-        // Assert that the input file content matches the expected content
-        String actualInputContent = new String(Files.readAllBytes(inputFilePath));
-        assertEquals(inputContent, actualInputContent);
+        hTree = hTree.constructTree(inputPath);
+        hTree.encodeFile(inputPath, "encodedFile.txt");
+        hTree.decodeFile("encodedFile.txt", outputPath);
+        Path output = Paths.get(outputPath);
+        String decodedContent = new String(Files.readAllBytes(output));
+        assertEquals(content, decodedContent);
+    }
 
-        // Create temporary filenames for encoded and decoded files
-        String encodedFilename = "encoded.txt";
-        String decodedFilename = "decoded.txt";
-        Path encodedFilePath = tempDir.resolve(encodedFilename);
-        Path decodedFilePath = tempDir.resolve(decodedFilename);
+    @Test
+    @DisplayName("Test Encoding and Decoding 2 (bee movie script)")
+    public void testEncodingAndDecoding2() throws IOException {
+        String inputPath = "testFile2.txt";
+        String outputPath = "output.txt";
+        HuffmanTree hTree = huffmanTree.constructTree(inputPath);
 
-        // Construct the Huffman tree
-        HuffmanTree tree = huffmanTree.constructTree(inputFilePath.toString());
-        assertNotNull(tree);
+        Path input = Paths.get(inputPath);
+        String content = new String(Files.readAllBytes(input));
 
-        // Encode the input file
-        huffmanTree.encodeFile(inputFilePath.toString(), encodedFilePath.toString());
+        hTree = hTree.constructTree(inputPath);
+        hTree.encodeFile(inputPath, "encodedFile.txt");
+        hTree.decodeFile("encodedFile.txt", outputPath);
+        Path output = Paths.get(outputPath);
+        String decodedContent = new String(Files.readAllBytes(output));
+        assertEquals(content, decodedContent);
+    }
 
-        // Assert that the encoded file exists
-        assertTrue(Files.exists(encodedFilePath));
+    @Test
+    @DisplayName("Test Encoding and Decoding 3")
+    public void testEncodingAndDecoding3() throws IOException {
+        String inputPath = "testFile3.txt";
+        String outputPath = "output.txt";
+        HuffmanTree hTree = huffmanTree.constructTree(inputPath);
 
-        // Assert that the encoded file is not empty
-        long encodedFileSize = Files.size(encodedFilePath);
-        assertTrue(encodedFileSize > 0);
+        Path input = Paths.get(inputPath);
+        String content = new String(Files.readAllBytes(input));
 
-        // Decode the encoded file
-        huffmanTree.decodeFile(encodedFilePath.toString(), decodedFilePath.toString());
+        hTree = hTree.constructTree(inputPath);
+        hTree.encodeFile(inputPath, "encodedFile.txt");
+        hTree.decodeFile("encodedFile.txt", outputPath);
+        Path output = Paths.get(outputPath);
+        String decodedContent = new String(Files.readAllBytes(output));
+        assertEquals(content, decodedContent);
+    }
 
-        // Assert that the decoded file exists
-        assertTrue(Files.exists(decodedFilePath));
+    @Test
+    @DisplayName("Test Encoding and Decoding 4")
+    public void testEncodingAndDecoding4() throws IOException {
+        String inputPath = "testFile4.txt";
+        String outputPath = "output.txt";
+        HuffmanTree hTree = huffmanTree.constructTree(inputPath);
 
-        // Read the content of the decoded file
-        String decodedContent = new String(Files.readAllBytes(decodedFilePath));
+        Path input = Paths.get(inputPath);
+        String content = new String(Files.readAllBytes(input));
 
-        // Assert that the decoded content is not empty
-        assertFalse(decodedContent.isEmpty());
-
-        // Verify that the decoded content matches the original input content
-        assertEquals(inputContent, decodedContent);
+        hTree = hTree.constructTree(inputPath);
+        hTree.encodeFile(inputPath, "encodedFile.txt");
+        hTree.decodeFile("encodedFile.txt", outputPath);
+        Path output = Paths.get(outputPath);
+        String decodedContent = new String(Files.readAllBytes(output));
+        assertEquals(content, decodedContent);
     }
 
     @Test

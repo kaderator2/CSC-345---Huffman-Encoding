@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HashTable Test" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-04-16T01:58:56" hostname="DESKTOP-3JLUF70" time="0.011">
+  <properties/>
+  <testcase name="Test Add and Get Count" classname="src.test.java.HashTableTest" time="0.001"/>
+  <testcase name="Test Add and Get Char" classname="src.test.java.HashTableTest" time="0.001"/>
+  <testcase name="Test Add Duplicate Characters" classname="src.test.java.HashTableTest" time="0.0"/>
+  <testcase name="Test Empty HashTable" classname="src.test.java.HashTableTest" time="0.0"/>
+  <testcase name="Test Add and Find Encoding" classname="src.test.java.HashTableTest" time="0.005"/>
+  <testcase name="Test Add Multiple Characters" classname="src.test.java.HashTableTest" time="0.002"/>
+  <testcase name="Test Is Null" classname="src.test.java.HashTableTest" time="0.0"/>
+  <testcase name="Test Resize" classname="src.test.java.HashTableTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

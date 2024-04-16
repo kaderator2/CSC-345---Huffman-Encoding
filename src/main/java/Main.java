@@ -7,8 +7,6 @@ package src.main.java;
 
 public class Main {
     public static void main(String[] args) {
-        // FileRead fileRead = new FileRead();
-        // String filename = fileRead.getFilename();
         HuffmanTree hTree = new HuffmanTree();
         hTree = hTree.constructTree("testFile.txt");
 

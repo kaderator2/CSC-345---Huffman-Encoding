@@ -139,7 +139,6 @@ public class HashTable {
     // doubles the size of the table while preserving the indices.
     private void resize() {
         if (((numElements * 1.0) / size) > 0.5) {
-            System.out.print(numElements + "\n");
             int newSize = (size * 2);
             HashNode[] newTable = new HashNode[newSize];
 
