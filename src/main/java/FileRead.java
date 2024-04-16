@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import src.main.java.HashTable;
 
 public class FileRead {
     // This method will be utilized in order to get the name of a file from the user

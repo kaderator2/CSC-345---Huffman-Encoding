@@ -1,3 +1,4 @@
+package src.main.java;
 
 // Implements the functionality of a HashTable, which will be used to store the 
 // frequencies of different characters within a given file. In other words, the
@@ -6,7 +7,7 @@
 // Authors: Micaila Marcelle, Ethan Quimpo, Kade Dean
 
 public class HashTable {
-    // Declares the instance variables necessary for the hashtable. These include 
+    // Declares the instance variables necessary for the hashtable. These include
     // the table itself and the number of key-value pairs currently in the table.
     // Note that the table is an array of HashNode objects
     static HashNode[] table;
@@ -35,22 +36,23 @@ public class HashTable {
      *
      * @return int size of the hashtable.
      */
-    public  int getNumElements() {
+    public int getNumElements() {
         return numElements;
     }
-    public int  getSize() {
-    	return size;
+
+    public int getSize() {
+        return size;
     }
+
     private int hash(char givenCharacter) {
         return (Character.hashCode(givenCharacter) & 0x7fffffff) % size;
     }
-    
+
     // Wrapper method for actually adding to the hashtable
     public void add(char givenCharacter, String encoding) {
-    	resize();// Resizes the table up, if necessary
+        resize();// Resizes the table up, if necessary
         insert(givenCharacter, encoding, table, true);
     }
-   
 
     // Method for adding a character to an underlying array. Note that if the
     // character
@@ -67,7 +69,7 @@ public class HashTable {
                 givenArray[hash] = new HashNode(givenCharacter);
                 givenArray[hash].setEncoding(encoding);
                 if (isReInsert) {
-                	numElements++;
+                    numElements++;
                 }
                 return;
             }
@@ -89,7 +91,7 @@ public class HashTable {
                         givenArray[hash] = new HashNode(givenCharacter);
                         givenArray[hash].setEncoding(encoding);
                         if (isReInsert) {
-                        	numElements++;
+                            numElements++;
                         }
                         return;
                     }
@@ -107,8 +109,6 @@ public class HashTable {
             numIterations++;
             hash = (hash + 1) % givenArray.length;
         }
-
-     
 
     }
 
@@ -195,20 +195,20 @@ public class HashTable {
     // returns -1 if not found
     public int getCount(char givenChar) {
         int hash = hash(givenChar);
-        
+
         HashNode node = table[hash];
-        
+
         while (node != null) {
             if (node.getChar() == givenChar && !node.getTombstone()) {
                 // Character found, return its count
                 return node.getCount();
             }
-            
+
             // Move to the next slot in the hash table
             hash = (hash + 1) % size;
             node = table[hash];
         }
-        
+
         // Character not found
         return -1;
     }
@@ -225,15 +225,13 @@ public class HashTable {
     public int getFrequency(int index) {
         return table[index].getCount();
     }
-   
 
     public static void main(String[] args) {
         HashTable testHash = new HashTable();
         String characters = "abcdefghijklmnopqrstuvwxyz";
-        
-        
+
         for (char c : characters.toCharArray()) {
-        	
+
             testHash.add(c, "");
         }
         testHash.add('a', "");
@@ -249,5 +247,3 @@ public class HashTable {
         System.out.print(testHash.getChar(40) + "\n");
     }
 }
-
-
