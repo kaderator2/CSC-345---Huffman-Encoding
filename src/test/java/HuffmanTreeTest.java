@@ -49,7 +49,7 @@ public class HuffmanTreeTest {
     @Test
     @DisplayName("Test Encoding and Decoding 2 (bee movie script)")
     public void testEncodingAndDecoding2() throws IOException {
-        String inputPath = "testFile2.txt";
+        String inputPath = "bee-movie.txt";
         String outputPath = "output.txt";
         HuffmanTree hTree = huffmanTree.constructTree(inputPath);
 
